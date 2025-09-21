@@ -14,6 +14,7 @@ module.exports = (_: any, argv: { mode: string }): Configuration => {
       filename: isDev ? "[name].js" : "[name].[contenthash].js",
       clean: true,
       publicPath: isDev ? "/" : "/history-animated/",
+      publicPath: isDev ? "/" : "/history-animated/",
     },
     resolve: {
       extensions: [".tsx", ".ts", ".js", ".jsx"],
