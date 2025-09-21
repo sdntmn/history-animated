@@ -39,6 +39,11 @@ export const Slider: React.FC<Props> = ({ events }) => {
 
     const containerWidth = containerRef.current.offsetWidth
 
+    if (isDesktop) {
+      setSlidesPerView(3)
+      setSpaceBetween(24)
+      return
+    }
     if (isTablet) {
       setSlidesPerView(2)
       setSpaceBetween(24)
@@ -65,7 +70,7 @@ export const Slider: React.FC<Props> = ({ events }) => {
 
     setSlidesPerView(calculatedSlidesPerView)
     setSpaceBetween(desktopSpaceBetween)
-  }, [isMobile, windowWidth])
+  }, [isDesktop, isMobile, isTablet])
 
   const updateVisibleSlides = useCallback(() => {
     if (!swiperRef.current) return

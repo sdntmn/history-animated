@@ -2,7 +2,6 @@ import React, { useMemo, useState } from "react"
 
 import { Page } from "@/shared/ui/Page"
 import { HStack, VStack } from "@/shared/ui/Stack"
-import "./HistoryPage.module.scss"
 
 import { getYear } from "date-fns/getYear"
 import { parseISO } from "date-fns/parseISO"
@@ -12,6 +11,7 @@ import { Flex } from "@/shared/ui/Stack/Flex/Flex"
 import { timePeriods } from "./mockData"
 import { useAnimatedYear } from "@/shared/lib/hooks/useAnimationYear"
 import { AnimatedYear, CircleCarousel, Slider, StaticLines, Switcher } from "@/entities/History"
+import "./HistoryPage.module.scss"
 
 export const HistoryPage: React.FC = () => {
   const { windowWidth } = useWindowSize()
