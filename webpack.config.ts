@@ -13,7 +13,7 @@ module.exports = (_: any, argv: { mode: string }): Configuration => {
       path: path.resolve(__dirname, "dist"),
       filename: isDev ? "[name].js" : "[name].[contenthash].js",
       clean: true,
-      publicPath: "/",
+      publicPath: isDev ? "/" : "/history-animated/",
     },
     resolve: {
       extensions: [".tsx", ".ts", ".js", ".jsx"],
@@ -47,11 +47,11 @@ module.exports = (_: any, argv: { mode: string }): Configuration => {
               loader: "css-loader",
               options: {
                 modules: {
-                  auto: (resPath: string) => {
-                    // Включаем модули только для файлов с .module. и не из node_modules
-                    return resPath.includes(".module.") && !resPath.includes("node_modules")
-                  },
-                  localIdentName: isDev ? "[local]" : "[hash:base64:8]",
+                  // auto: (resPath: string) => {
+                  //   // Включаем модули только для файлов с .module. и не из node_modules
+                  //   return resPath.includes(".module.") && !resPath.includes("node_modules")
+                  // },
+                  localIdentName: isDev ? "[local]" : "[local]",
                   namedExport: false,
                 },
               },
@@ -101,6 +101,10 @@ module.exports = (_: any, argv: { mode: string }): Configuration => {
       new HtmlWebpackPlugin({
         template: "./public/index.html",
         filename: "index.html",
+      }),
+      new MiniCssExtractPlugin({
+        filename: "css/[name].css",
+        chunkFilename: "css/[name].css",
       }),
     ],
     devServer: {
