@@ -1,0 +1,16 @@
+.animated-year {
+  display: flex;
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__digit {
+    width: 100%;
+    text-align: center;
+    transition: transform 0.05s ease-out;
+    transform: translateY(0);
+  }
+}

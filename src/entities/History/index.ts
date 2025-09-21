@@ -1,0 +1,5 @@
+export { Slider } from "./ui/Slider/Slider"
+export { Switcher } from "./ui/Switcher/Switcher"
+export { AnimatedYear } from "./ui/AnimatedYear/AnimatedYear"
+export { StaticLines } from "./ui/Lines/StaticLines"
+export { CircleCarousel } from "./ui/CircleCarousel/CircleCarousel"

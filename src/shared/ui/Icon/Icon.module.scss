@@ -1,0 +1,17 @@
+.icon {
+  // color: #3877ee;
+
+  &__button {
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    background: none;
+    cursor: pointer;
+
+    &:hover .icon {
+      // color: #3877ee;
+      opacity: 0.5;
+    }
+  }
+}
