@@ -1,0 +1,29 @@
+.card {
+  position: relative;
+
+  &__description {
+    font: 400 20px / 150% "PT Sans", sans-serif;
+    color: #42567a;
+    line-height: 30px;
+  }
+
+  &__year-badge {
+    font: 400 25px / 120% "Bebas Neue", sans-serif;
+    text-transform: uppercase;
+    color: #3877ee;
+    margin-bottom: 15px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .card {
+    &__description {
+      font: 400 14px / 1.45 "PT Sans", sans-serif;
+    }
+
+    &__year-badge {
+      font: 400 16px / 1.2 "Bebas Neue", sans-serif;
+      margin-bottom: 10px;
+    }
+  }
+}

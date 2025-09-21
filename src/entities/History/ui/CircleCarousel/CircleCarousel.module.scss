@@ -1,0 +1,16 @@
+.circle-carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(460px, 37vw, 530px);
+  height: clamp(460px, 37vw, 530px);
+  border-radius: 50%;
+  border: solid 1px rgb(66, 86, 122, 0.2);
+  transform-origin: center;
+  will-change: transform;
+  left: 50%;
+  top: clamp(400px, 38vw, 480px);
+  position: absolute;
+  transform: translate(-50%, -50%);
+  z-index: 20;
+}
