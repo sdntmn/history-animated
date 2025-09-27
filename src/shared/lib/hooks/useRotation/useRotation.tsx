@@ -19,20 +19,23 @@ export const useRotation = (initialRotation = 0) => {
     return rotation.current
   }, [])
 
-  const setRotation = useCallback((newRotation: number, element: HTMLElement | null) => {
-    rotation.current = newRotation
+  const setRotation = useCallback(
+    (newRotation: number, element: HTMLElement | null) => {
+      rotation.current = newRotation
 
-    if (element) {
-      gsap.to(element, {
-        rotation: rotation.current,
-        duration: 1.2,
-        ease: "back.out(1.7)",
-        transformOrigin: "center",
-      })
-    }
+      if (element) {
+        gsap.to(element, {
+          rotation: rotation.current,
+          duration: 1.2,
+          ease: "back.out(1.7)",
+          transformOrigin: "center",
+        })
+      }
 
-    return rotation.current
-  }, [])
+      return rotation.current
+    },
+    []
+  )
 
   const getRotation = useCallback(() => rotation.current, [])
 

@@ -1,7 +1,6 @@
 import { HistoryPage } from "@/pages/History"
-import React from "react"
 
-const App: React.FC = () => {
+const App = () => {
   return (
     <div className="app">
       <HistoryPage />

@@ -1,5 +1,6 @@
-import React from "react"
+import type React from "react"
 import cn from "classnames"
+
 import "./AnimatedYear.module.scss"
 
 interface Props {
@@ -13,7 +14,10 @@ export const AnimatedYear: React.FC<Props> = ({ className, year }) => {
   return (
     <div className={cn("animated-year", className)}>
       {digits.map((digit, idx) => (
-        <div key={idx} className="animated-year__container">
+        <div
+          key={`${year}-${idx}-${digit}`}
+          className="animated-year__container"
+        >
           <div className="digit">{digit}</div>
         </div>
       ))}

@@ -1,6 +1,6 @@
-import React, { memo } from "react"
-
+import type React from "react"
 import cn from "classnames"
+import { memo } from "react"
 
 import "./Icon.module.scss"
 
@@ -22,7 +22,14 @@ interface IconClickableProps extends IconBaseProps {
 type IconProps = IconNonClickableProps | IconClickableProps
 
 export const Icon: React.FC<IconProps> = memo(function Icon(props: IconProps) {
-  const { className, Svg, width = 32, height = 32, clickable, ...otherProps } = props
+  const {
+    className,
+    Svg,
+    width = 32,
+    height = 32,
+    clickable,
+    ...otherProps
+  } = props
 
   const svgProps = {
     width,
@@ -34,15 +41,15 @@ export const Icon: React.FC<IconProps> = memo(function Icon(props: IconProps) {
 
   if (clickable) {
     return (
-      <span
-        role="button"
+      <button
+        type="button"
         tabIndex={0}
         className="icon__button"
         onClick={props?.onClick}
         style={{ width, height }}
       >
         {Icon}
-      </span>
+      </button>
     )
   }
 

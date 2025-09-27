@@ -1,6 +1,9 @@
 import { useEffect, useRef, useState } from "react"
 
-export const useAnimatedYear = (targetYear: number | null, deps: any[] = []) => {
+export const useAnimatedYear = (
+  targetYear: number | null,
+  deps: number[] = []
+) => {
   const [displayedYear, setDisplayedYear] = useState<number | null>(null)
   const displayedYearRef = useRef<number | null>(null)
 

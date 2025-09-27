@@ -1,1 +1,1 @@
-export { useRotation } from "./useRotation"
+export { useRotation } from "./useRotation";

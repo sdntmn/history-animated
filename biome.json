@@ -1,0 +1,74 @@
+{
+  "files": {
+    "ignoreUnknown": false,
+    "includes": [
+      "src/**/*.tsx"
+    ]
+  },
+  "formatter": {
+    "enabled": true,
+    "indentStyle": "space",
+    "indentWidth": 2,
+    "lineEnding": "crlf",
+    "lineWidth": 80
+  },
+  "javascript": {
+    "formatter": {
+      "semicolons": "asNeeded",
+      "quoteStyle": "double",
+      "arrowParentheses": "asNeeded",
+      "bracketSameLine": false,
+      "bracketSpacing": true,
+      "trailingCommas": "es5",
+      "lineWidth": 80,
+      "quoteProperties": "asNeeded",
+      "jsxQuoteStyle": "double",
+      "expand": "auto"
+    }
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "complexity": {
+        "noBannedTypes": "warn",
+        "noUselessSwitchCase": "error"
+      },
+      "correctness": {
+        "noUnusedVariables": "error"
+      }
+    }
+  },
+  "json": {
+    "formatter": {
+      "enabled": false,
+      "indentStyle": "space",
+      "indentWidth": 2,
+      "lineEnding": "crlf",
+      "lineWidth": 80,
+      "bracketSpacing": true,
+      "expand": "auto"
+    }
+  },
+  "css": {
+    "formatter": {
+      "indentWidth": 2
+    }
+  },
+  "assist": {
+    "actions": {
+      "source": {
+        "organizeImports": {
+          "level": "on",
+          "options": {
+            "identifierOrder": "natural",
+            "groups": [
+              {
+                "type": true
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

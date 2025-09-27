@@ -1,6 +1,5 @@
-import React from "react"
-
-import { Flex, FlexProps } from "../Flex/Flex"
+import type React from "react"
+import { Flex, type FlexProps } from "../Flex/Flex"
 
 type HStackProps = Omit<FlexProps, "direction">
 

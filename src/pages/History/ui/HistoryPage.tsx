@@ -1,19 +1,22 @@
-import React, { useMemo, useState } from "react"
-
-import { Page } from "@/shared/ui/Page"
-import { HStack, VStack } from "@/shared/ui/Stack"
-
 import { getYear } from "date-fns/getYear"
 import { parseISO } from "date-fns/parseISO"
-import { useWindowSize } from "@/shared/lib/hooks/useWindowsSize"
-import { Flex } from "@/shared/ui/Stack/Flex/Flex"
-
-import { timePeriods } from "./mockData"
+import { useMemo, useState } from "react"
+import { CircleCarousel } from "@/entities/CircleCarusel"
+import { Slider } from "@/entities/Slider"
+import { Switcher } from "@/entities/Switcher"
+import { WIDTH } from "@/shared/const/number"
 import { useAnimatedYear } from "@/shared/lib/hooks/useAnimationYear"
-import { AnimatedYear, CircleCarousel, Slider, StaticLines, Switcher } from "@/entities/History"
+import { useWindowSize } from "@/shared/lib/hooks/useWindowsSize"
+import { AnimatedYear } from "@/shared/ui/AnimatedYear"
+import { StaticLines } from "@/shared/ui/Lines/StaticLines"
+import { Page } from "@/shared/ui/Page"
+import { HStack, VStack } from "@/shared/ui/Stack"
+import { Flex } from "@/shared/ui/Stack/Flex/Flex"
+import { timePeriods } from "./mockData"
+
 import "./HistoryPage.module.scss"
 
-export const HistoryPage: React.FC = () => {
+export const HistoryPage = () => {
   const { windowWidth } = useWindowSize()
 
   const [activePeriodIndex, setActivePeriodIndex] = useState(0)
@@ -31,19 +34,21 @@ export const HistoryPage: React.FC = () => {
   }
 
   const periodYears = useMemo(() => {
-    const years = sortedEvents.map((event) => getYear(parseISO(event.date)))
+    const years = sortedEvents.map(event => getYear(parseISO(event.date)))
     return {
       start: Math.min(...years),
       end: Math.max(...years),
     }
   }, [sortedEvents])
 
-  const displayedPrevYear = useAnimatedYear(periodYears.start, [periodYears.start])
+  const displayedPrevYear = useAnimatedYear(periodYears.start, [
+    periodYears.start,
+  ])
 
   const displayedEndYear = useAnimatedYear(periodYears.end, [periodYears.end])
 
-  const isDesktop = windowWidth > 800
-  const isDesktop1280 = windowWidth > 1280
+  const showCarousel = windowWidth > WIDTH.SCREEN_800
+  const showStaticLines = windowWidth > WIDTH.SCREEN_1280
 
   return (
     <Page className="history-page">
@@ -59,29 +64,31 @@ export const HistoryPage: React.FC = () => {
           <AnimatedYear
             className="history-page__years_left"
             year={displayedPrevYear ?? periodYears.start}
-            key={displayedPrevYear}
           />
         </span>
         <span className="history-page__years ">
           <AnimatedYear
             className="history-page__years_right"
             year={displayedEndYear ?? periodYears.end}
-            key={displayedEndYear}
           />
         </span>
       </HStack>
 
-      {isDesktop1280 && <StaticLines />}
-      {isDesktop && (
+      {showStaticLines && <StaticLines />}
+      {showCarousel && (
         <CircleCarousel
           onPeriodChange={handlePeriodChange}
           periods={timePeriods}
           activePeriod={activePeriod}
         />
       )}
-      {!isDesktop && <div className="history-page__divider"></div>}
+      {!showCarousel && <div className="history-page__divider"></div>}
 
-      <Flex direction={"column"} align="start" className="history-page__section-slider">
+      <Flex
+        direction="column"
+        align="start"
+        className="history-page__section-slider"
+      >
         <Switcher
           periods={timePeriods}
           activeIndex={activePeriodIndex}

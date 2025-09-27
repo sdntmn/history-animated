@@ -1,1 +1,1 @@
-export { useAnimatedYear } from "./useAnimatedYear"
+export { useAnimatedYear } from "./useAnimatedYear";
