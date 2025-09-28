@@ -7,11 +7,11 @@ export const animatePointHover = (
   elRef: RefObject<HTMLSpanElement | null>
 ) => {
   const pointEl = pointRef.current
-  const textEl = elRef.current
+  const numberEl = elRef.current
 
-  if (!pointEl || !textEl) return
+  if (!pointEl || !numberEl) return
 
-  gsap.killTweensOf([pointEl, textEl])
+  gsap.killTweensOf([pointEl, numberEl])
 
   gsap.to(pointRef.current, {
     width: POINT.SIZE.END,
@@ -36,10 +36,12 @@ export const resetPointHover = (
   pointRef: RefObject<HTMLDivElement | null>,
   elRef: RefObject<HTMLSpanElement | null>
 ) => {
-  if (!pointRef.current || !elRef.current) return
+  const pointEl = pointRef.current
+  const numberEl = elRef.current
 
-  gsap.killTweensOf(pointRef.current)
-  gsap.killTweensOf(elRef.current)
+  if (!pointEl || !numberEl) return
+
+  gsap.killTweensOf([pointEl, numberEl])
 
   gsap.to(pointRef.current, {
     width: POINT.SIZE.START,
@@ -60,11 +62,14 @@ export const animatePointActive = (
   elRef: RefObject<HTMLSpanElement | null>,
   extraRef: RefObject<HTMLSpanElement | null>
 ) => {
-  if (!pointRef.current || !elRef.current || !extraRef.current) return
 
-  gsap.killTweensOf(pointRef.current)
-  gsap.killTweensOf(elRef.current)
-  gsap.killTweensOf(extraRef.current)
+  const pointEl = pointRef.current
+  const numberEl = elRef.current
+  const textEl = extraRef.current
+
+  if (!pointEl || !numberEl || textEl) return
+
+  gsap.killTweensOf([pointEl, numberEl, textEl])
 
   gsap.to(pointRef.current, {
     width: POINT.SIZE.END,
