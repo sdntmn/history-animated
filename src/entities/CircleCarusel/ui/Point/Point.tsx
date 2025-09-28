@@ -1,4 +1,5 @@
 import type { MouseEvent } from "react"
+import cn from "classnames"
 import gsap from "gsap"
 import { forwardRef, useImperativeHandle, useRef, useState } from "react"
 import {
@@ -99,7 +100,10 @@ export const PointComponent = forwardRef<PointComponentRef, Props>(
         aria-expanded={isActive}
         aria-label={`Select ${category} period`}
         ref={containerRef}
-        className="point-component"
+        className={cn(
+          "point-component",
+          isActive && "point-component__inactive"
+        )}
         type="button"
         style={{
           left: `calc(50% + ${position.x}px)`,
@@ -111,7 +115,10 @@ export const PointComponent = forwardRef<PointComponentRef, Props>(
       >
         <div
           ref={pointRef}
-          className={`point-component__circle ${isActive ? "point-component__circle--active" : ""}`}
+          className={cn(
+            "point-component__circle",
+            isActive && "point-component__circle--active"
+          )}
         >
           <div
             ref={textContainerRef}
