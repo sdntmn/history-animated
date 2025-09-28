@@ -35,11 +35,6 @@ export const PointComponent = forwardRef<PointComponentRef, Props>(
     const containerRef = useRef<HTMLButtonElement>(null)
     const [isActive, setIsActive] = useState(false)
 
-    // const angle = (DEGREES.FULL_CIRCLE / totalPoints) * index
-
-    // const x = radius * Math.cos(toRadians(angle))
-    // const y = radius * Math.sin(toRadians(angle))
-
     const baseTextRotation = DEGREES.ZERO
     const textRotation = baseTextRotation - rotation
 

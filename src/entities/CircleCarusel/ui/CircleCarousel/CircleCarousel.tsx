@@ -47,6 +47,10 @@ export const CircleCarousel: React.FC<Props> = ({
     (index: number, event: MouseEvent<HTMLElement>) => {
       event.stopPropagation()
 
+      if (activePoint === index) {
+        return
+      }
+
       if (
         activePoint !== null &&
         activePoint !== index &&
@@ -96,18 +100,18 @@ export const CircleCarousel: React.FC<Props> = ({
     }
   }, [activePeriod, periods, activePoint, setRotation, calculateTargetRotation])
 
- const points = periods.map((period, index) => (
-  <PointComponent
-    key={period.id}
-    ref={setPointRef(index)}
-    index={index}
-    totalPoints={periods.length}
-    radius={radius}
-    rotation={rotation.current}
-    onPointClick={handlePointClick}
-    category={period.category}
-  />
-));
+  const points = periods.map((period, index) => (
+    <PointComponent
+      key={period.id}
+      ref={setPointRef(index)}
+      index={index}
+      totalPoints={periods.length}
+      radius={radius}
+      rotation={rotation.current}
+      onPointClick={handlePointClick}
+      category={period.category}
+    />
+  ))
 
   return (
     <div className="circle-carousel" ref={dialRef}>

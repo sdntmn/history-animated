@@ -62,14 +62,11 @@ export const animatePointActive = (
   elRef: RefObject<HTMLSpanElement | null>,
   extraRef: RefObject<HTMLSpanElement | null>
 ) => {
+  if (!pointRef.current || !elRef.current || !extraRef.current) return
 
-  const pointEl = pointRef.current
-  const numberEl = elRef.current
-  const textEl = extraRef.current
-
-  if (!pointEl || !numberEl || textEl) return
-
-  gsap.killTweensOf([pointEl, numberEl, textEl])
+  gsap.killTweensOf(pointRef.current)
+  gsap.killTweensOf(elRef.current)
+  gsap.killTweensOf(extraRef.current)
 
   gsap.to(pointRef.current, {
     width: POINT.SIZE.END,
