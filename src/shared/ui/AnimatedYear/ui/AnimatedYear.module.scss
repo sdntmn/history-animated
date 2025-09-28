@@ -9,7 +9,9 @@
 
   &__digit {
     width: 100%;
+
     text-align: center;
+
     transition: transform 0.05s ease-out;
     transform: translateY(0);
   }

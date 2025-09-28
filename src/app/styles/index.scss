@@ -1,4 +1,4 @@
-@use "./reset" as *;
+@import "./reset";
 
 body {
   font-size: var(--font-m);
@@ -6,6 +6,7 @@ body {
 }
 
 .app {
-  background: #f4f5f9;
   min-height: 100vh;
+
+  background: #f4f5f9;
 }

@@ -1,54 +1,60 @@
 .switcher {
-  max-width: 120px;
-  margin-bottom: 56px;
   position: relative;
   z-index: 2;
+
+  max-width: 120px;
+  margin-bottom: 56px;
 
   &__content {
     margin-bottom: 20px;
   }
 
   &__events {
-    font: 400 14px "PT Sans", sans-serif;
-    color: #42567a;
     margin-bottom: 20px;
+
+    font:
+      400 14px "PT Sans",
+      sans-serif;
+    color: #42567a;
   }
 
   &__button {
-    background: none;
-    border: 1px solid #ddd;
-    border-radius: 50%;
-    width: clamp(25px, 4vw, 50px);
-    height: clamp(25px, 4vw, 50px);
     display: flex;
     align-items: center;
     justify-content: center;
+    width: clamp(25px, 4vw, 50px);
+    height: clamp(25px, 4vw, 50px);
+
+    border: 1px solid #dddddd;
+    border-radius: 50%;
+    background: none;
     cursor: pointer;
+
     transition: all 0.3s ease;
 
     &_prev {
       &:hover:not(:disabled) {
+        border-color: #999999;
         background-color: #f5f5f5;
-        border-color: #999;
       }
 
       &:disabled {
-        pointer-events: none;
-        cursor: default;
         opacity: 0.5;
+        cursor: default;
+        pointer-events: none;
       }
     }
 
     &_next {
       &:hover:not(:disabled) {
+        border-color: #999999;
         background-color: #f5f5f5;
-        border-color: #999;
       }
 
       &:disabled {
-        pointer-events: none;
-        cursor: default;
         opacity: 0.5;
+        cursor: default;
+        pointer-events: none;
       }
     }
   }
@@ -58,6 +64,7 @@
   .switcher {
     position: absolute;
     bottom: 13px;
+
     margin-bottom: 0;
 
     &__content {

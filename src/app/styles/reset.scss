@@ -1,7 +1,7 @@
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
 input,
@@ -9,8 +9,9 @@ button,
 select,
 textarea {
   margin: 0;
-  font-family: inherit;
+
   font-size: inherit;
+  font-family: inherit;
   line-height: inherit;
 }
 

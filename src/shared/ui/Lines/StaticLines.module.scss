@@ -1,17 +1,19 @@
 .static-lines {
   position: absolute;
   top: 0;
-  left: 0;
   right: 0;
   bottom: 0;
+  left: 0;
   z-index: 1;
 
   &__horizontal-line {
     position: absolute;
     top: clamp(400px, 39vw, 480px);
-    max-width: 1440px;
+
     width: 100%;
+    max-width: 1440px;
     height: 1px;
+
     background: rgb(66, 86, 123, 0.1);
 
     &::before,
@@ -19,13 +21,15 @@
       content: "";
       position: absolute;
       top: 0;
+
       height: 100%;
+
       background: inherit;
     }
 
     &::before {
-      left: -50px;
       right: auto;
+      left: -50px;
     }
 
     &::after {
@@ -36,19 +40,24 @@
 
   &__vertical-line {
     position: absolute;
-    left: 50%;
     top: 0;
+    left: 50%;
+
     width: 1px;
     height: 100%;
-    transform: translateX(-50%);
+
     background: rgb(66, 86, 123, 0.1);
+
+    transform: translateX(-50%);
 
     &::before,
     &::after {
       content: "";
       position: absolute;
       left: 0;
+
       width: 100%;
+
       background: inherit;
     }
   }

@@ -1,13 +1,15 @@
 .slider {
   position: relative;
-  margin: 0 auto;
-  align-items: center;
   z-index: 2;
-  max-width: 1280px;
+
+  align-items: center;
   width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
 
   &__button-next {
     right: -56px;
+
     padding-left: 4px;
   }
 
@@ -19,18 +21,21 @@
   &__button-prev {
     position: absolute;
     top: 32px;
-    width: 40px;
-    height: 40px;
-    background: #fff;
-    border-radius: 50%;
+
     display: flex;
     align-items: center;
     justify-content: center;
-    backdrop-filter: blur(10px);
+    width: 40px;
+    height: 40px;
+
     border: 1px solid rgba(255, 255, 255, 0.2);
-    transition: all 0.3s ease;
+    border-radius: 50%;
+    background: #ffffff;
     box-shadow: 0 0 15px 0 rgba(56, 119, 238, 0.1);
     cursor: pointer;
+
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
 
     &:hover {
       background: rgba(255, 255, 255, 0.2);
@@ -38,25 +43,31 @@
   }
 
   &__pagination {
-    display: flex;
-    gap: 10px;
     position: absolute;
     bottom: 32px !important;
     left: 50% !important;
-    transform: translateX(-50%);
     z-index: 10;
+
+    display: flex;
+    gap: 10px;
     justify-content: center;
+
+    transform: translateX(-50%);
+
     .swiper-pagination-horizontal {
       position: absolute;
+
       gap: 8px;
     }
 
     .swiper-pagination-bullet {
       width: 6px;
       height: 6px;
+      margin: 0 !important;
+
       background: #42567a;
       opacity: 0.4;
-      margin: 0 !important;
+
       transition: background 0.3s;
 
       &.swiper-pagination-bullet-active {
@@ -69,11 +80,12 @@
 @media screen and (max-width: 800px) {
   .slider {
     position: static;
-    margin: 0 auto;
-    align-items: center;
     z-index: 2;
-    max-width: 1280px;
+
+    align-items: center;
     width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
 
     .swiper-slide {
       opacity: 0.5;

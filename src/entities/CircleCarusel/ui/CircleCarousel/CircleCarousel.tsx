@@ -96,24 +96,18 @@ export const CircleCarousel: React.FC<Props> = ({
     }
   }, [activePeriod, periods, activePoint, setRotation, calculateTargetRotation])
 
-  const points = Array.from(
-    { length: periods.length },
-    (point: TimePeriod, index) => {
-      const period = periods[index]
-      return (
-        <PointComponent
-          key={point?.id}
-          ref={setPointRef(index)}
-          index={index}
-          totalPoints={periods.length}
-          radius={radius}
-          rotation={rotation.current}
-          onPointClick={handlePointClick}
-          category={period?.category}
-        />
-      )
-    }
-  )
+ const points = periods.map((period, index) => (
+  <PointComponent
+    key={period.id}
+    ref={setPointRef(index)}
+    index={index}
+    totalPoints={periods.length}
+    radius={radius}
+    rotation={rotation.current}
+    onPointClick={handlePointClick}
+    category={period.category}
+  />
+));
 
   return (
     <div className="circle-carousel" ref={dialRef}>

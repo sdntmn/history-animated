@@ -2,28 +2,38 @@
   position: relative;
 
   &__description {
-    font: 400 20px / 150% "PT Sans", sans-serif;
-    color: #42567a;
+    font:
+      400 20px / 150% "PT Sans",
+      sans-serif;
     line-height: 30px;
+    color: #42567a;
   }
 
   &__year-badge {
-    font: 400 25px / 120% "Bebas Neue", sans-serif;
-    text-transform: uppercase;
-    color: #3877ee;
     margin-bottom: 15px;
+
+    font:
+      400 25px / 120% "Bebas Neue",
+      sans-serif;
+    color: #3877ee;
+    text-transform: uppercase;
   }
 }
 
 @media screen and (max-width: 800px) {
   .card {
     &__description {
-      font: 400 14px / 1.45 "PT Sans", sans-serif;
+      font:
+        400 14px / 1.45 "PT Sans",
+        sans-serif;
     }
 
     &__year-badge {
-      font: 400 16px / 1.2 "Bebas Neue", sans-serif;
       margin-bottom: 10px;
+
+      font:
+        400 16px / 1.2 "Bebas Neue",
+        sans-serif;
     }
   }
 }
